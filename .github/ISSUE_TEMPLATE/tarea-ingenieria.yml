@@ -1,0 +1,80 @@
+name: Tarea de ingeniería / desarrollo
+description: Definir una tarea técnica verificable con contexto, dependencias y aceptación.
+title: "[ETAPA N][SUBSISTEMA] Acción concreta"
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Las tareas deben tener un resultado verificable y actualizar documentación, requisitos, BOM, seguridad o pruebas cuando corresponda.
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto
+      description: Estado actual, evidencia y por qué se requiere este trabajo.
+      placeholder: Contexto y enlaces a documentación/Issues
+    validations:
+      required: true
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objetivo técnico
+      placeholder: Resultado concreto que debe producir esta tarea
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Alcance y fuera de alcance
+      placeholder: Qué se hará y qué explícitamente no se hará
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      description: Checklist objetivo que permita cerrar la tarea.
+      placeholder: "- [ ] ..."
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencias y bloqueos
+      placeholder: Issues, documentos, compras o decisiones previas
+    validations:
+      required: false
+  - type: textarea
+    id: risks
+    attributes:
+      label: Riesgos y seguridad
+      placeholder: Incertidumbres, peligros y revisiones requeridas antes de pruebas
+    validations:
+      required: true
+  - type: input
+    id: stage_subsystem
+    attributes:
+      label: Etapa y subsistema
+      placeholder: stage:2, sub:adc, sub:power
+    validations:
+      required: true
+  - type: dropdown
+    id: kanban
+    attributes:
+      label: Columna Kanban recomendada
+      options:
+        - Backlog
+        - Ready (Por Validar)
+        - In Progress
+        - Review / Testing
+        - Blocked
+        - Done
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia / entregables
+      placeholder: Archivos, mediciones, diagramas, decisiones o enlaces que deben quedar registrados
+    validations:
+      required: false

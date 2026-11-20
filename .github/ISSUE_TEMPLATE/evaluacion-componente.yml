@@ -1,0 +1,96 @@
+name: Evaluación / validación de componente
+description: Registrar la evaluación técnica y logística de un componente o módulo comercial.
+title: "[VALIDACIÓN][SUBSISTEMA] Modelo exacto"
+labels:
+  - needs-datasheet-check
+body:
+  - type: markdown
+    attributes:
+      value: |
+        No asumir especificaciones por título comercial. Enlazar fuentes primarias y marcar explícitamente los datos pendientes.
+  - type: input
+    id: component
+    attributes:
+      label: Fabricante, modelo y variante exactos
+      description: Incluir número de parte, revisión y enlace a fuente del fabricante.
+      placeholder: Fabricante / número de parte / variante
+    validations:
+      required: true
+  - type: dropdown
+    id: subsystem
+    attributes:
+      label: Subsistema
+      options:
+        - ESP32-P4 / HMI
+        - ADC / entradas analógicas
+        - DAC / salidas analógicas
+        - Sensor de corriente
+        - Alimentación
+        - Seguridad
+        - Otro
+    validations:
+      required: true
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objetivo y requisitos relacionados
+      description: Indicar qué necesidad/requisito se busca cubrir.
+      placeholder: IDs de requirements.md y objetivo técnico
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Fuentes primarias
+      description: Datasheet/manual/esquema del fabricante, revisiones y páginas relevantes.
+      placeholder: URLs, versiones, páginas y fecha de consulta
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Matriz de compatibilidad y pendientes
+      description: Evaluar rangos, interfaz, niveles lógicos, exactitud, temporización, potencia, aislamiento, protección y montaje según aplique.
+      placeholder: Requisito → especificación → análisis/medición → conclusión
+    validations:
+      required: true
+  - type: textarea
+    id: logistics
+    attributes:
+      label: Compra y envío a Colombia
+      description: Registrar proveedor, SKU, precio/moneda/fecha, disponibilidad y condiciones de envío. No confundir esto con validación técnica.
+      placeholder: Información conocida o Pendiente
+    validations:
+      required: false
+  - type: dropdown
+    id: evidence_status
+    attributes:
+      label: Estado preliminar de evidencia
+      options:
+        - "[CANDIDATO]"
+        - "[EXPERIMENTAL]"
+        - "[NO COMPATIBLE]"
+        - "[VALIDADO] — requiere evidencia adjunta"
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Riesgos, limitaciones y siguiente acción
+      placeholder: Riesgos y pasos de validación pendientes
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación verificables
+      placeholder: "- [ ] ..."
+    validations:
+      required: true
+  - type: input
+    id: stage
+    attributes:
+      label: Etapa y labels adicionales
+      placeholder: stage:1, sub:dac, critical-blocker
+    validations:
+      required: false
